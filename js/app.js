@@ -10,7 +10,17 @@ App.Story = DS.Model.extend({
 	fullname : DS.attr('string'),
 	title : DS.attr('string'),
 	excerpt : DS.attr('string'),
-	submittedOn : DS.attr('date')
+	submittedOn : DS.attr('date'),
+
+	tagnames : function(){
+		var tags = this.get('tags').split(',');
+		var tagArray = new Array();
+		for(var i = 0;i<tags.length;i++ ){
+			tagArray.push(tags[i].trim())
+		}
+		console.log(tagArray);
+		return tagArray;
+	}.property('tags')
 
 });
 
@@ -19,9 +29,10 @@ App.Router.map(function() {
 		this.resource('story', { path:'/stories/:story_id' });
 	});
 
-	this.resource('newstory' , {path : 'story/new'})
+	this.resource('newstory' , {path : 'story/new'});
 
 });
+
 
 
 App.IndexController = Ember.ArrayController.extend({
