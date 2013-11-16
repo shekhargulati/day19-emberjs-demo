@@ -1,4 +1,4 @@
-day18-emberjs-demo
+day19-emberjs-demo
 ==================
 
-Day 18 demo for EmberJS
+Day 19 demo for EmberJS
